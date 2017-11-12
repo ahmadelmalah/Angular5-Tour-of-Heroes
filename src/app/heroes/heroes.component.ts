@@ -13,4 +13,5 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
   }
 
+  hero = 'Windstorm';
 }
