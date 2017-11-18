@@ -25,10 +25,4 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroes = this.heroService.getHeroes();
   }
-
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
-  
 }
