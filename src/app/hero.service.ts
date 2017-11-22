@@ -17,12 +17,14 @@ export class HeroService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-    getHeroes (): Observable<Hero[]> {
-      return this.http.get<Hero[]>(this.heroesUrl)
-        .pipe(
-          catchError(this.handleError('getHeroes', []))
-        );
-    }
+  /** GET heroes from the server */
+  getHeroes (): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        tap(heroes => this.log(`fetched heroes`)),
+        catchError(this.handleError('getHeroes', []))
+      );
+  }
 
   getHero(id: number): Observable<Hero> {
     // Todo: send the message _after_ fetching the hero
